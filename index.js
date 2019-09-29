@@ -3,7 +3,10 @@ const server = express();
 require("dotenv").config();
 const PORT = process.env.PORT;
 
-// const projectRoutes;
+// Routes
+const projectRoutes = require("./routes/projects");
+server.use("/", projectRoutes);
+
 // const taskRoutes;
 // const resourceRoutes;
 
