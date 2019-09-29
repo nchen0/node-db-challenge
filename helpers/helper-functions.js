@@ -1,3 +1,5 @@
+const Joi = require("@hapi/joi");
+
 const validateBoolean = array => {
   array.map(item => {
     if (item.completed === 0) {
@@ -8,6 +10,18 @@ const validateBoolean = array => {
   });
 };
 
+function validatePost(req, res) {
+  const newPost = req.body;
+  const schema = Joi.object({
+    name: Joi.string()
+      .min(3)
+      .required(),
+    description: Joi.string().required()
+  });
+  return schema.validate(newPost);
+}
+
 module.exports = {
-  validateBoolean
+  validateBoolean,
+  validatePost
 };
