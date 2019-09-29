@@ -30,11 +30,15 @@ exports.up = function(knex) {
       table
         .integer("project_id", 10)
         .references("id")
-        .inTable("projects");
+        .inTable("projects")
+        .onDelete("RESTRICT")
+        .onUpdate("CASCADE");
       table
         .integer("resource_id", 10)
         .references("id")
-        .inTable("resources");
+        .inTable("resources")
+        .onDelete("RESTRICT")
+        .onUpdate("CASCADE");
     });
 };
 
