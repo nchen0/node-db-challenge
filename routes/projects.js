@@ -31,6 +31,12 @@ router.get("/tasks", (req, res) => {
     });
 });
 
+router.get("/taskss", (req, res) => {
+  db("tasks as t").join("projects as p", "t.id", "p.id").select('t.description', 't.notes', 't.completed', 'p.name as project', 'p.description as project_description').then(tasks => {
+    res.status(200).json(tasks);
+  })
+});
+
 router.get("/resources", (req, res) => {
   db("resources")
     .then(resources => {

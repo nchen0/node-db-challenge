@@ -18,6 +18,7 @@
   "homepage": "https://github.com/nchen0/node-db-challenge#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.4",
+    "bcrypt": "^3.0.6",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "knex": "^0.19.4",
