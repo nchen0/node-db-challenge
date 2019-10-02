@@ -4,7 +4,7 @@
   "description": "In this challenge, you design and build a Data Model and a RESTful API that stores data into a Relational Database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,11 @@
     "bcrypt": "^3.0.6",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "jest": "^24.9.0",
     "knex": "^0.19.4",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.2",
-    "sqlite3": "^4.1.0"
+    "sqlite3": "^4.1.0",
+    "supertest": "^4.0.2"
   }
 }
