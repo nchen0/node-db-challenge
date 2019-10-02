@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Joi = require("@hapi/joi");
 const knex = require("knex");
-const db = knex(require("../knexfile.js").development);
+// const db = knex(require("../knexfile.js").development);
+const db = require("../data/dbConfig");
 const validateBoolean = require("../helpers/helper-functions").validateBoolean;
 const validatePost = require("../helpers/helper-functions").validatePost;
 
@@ -32,9 +33,18 @@ router.get("/tasks", (req, res) => {
 });
 
 router.get("/taskss", (req, res) => {
-  db("tasks as t").join("projects as p", "t.id", "p.id").select('t.description', 't.notes', 't.completed', 'p.name as project', 'p.description as project_description').then(tasks => {
-    res.status(200).json(tasks);
-  })
+  db("tasks as t")
+    .join("projects as p", "t.id", "p.id")
+    .select(
+      "t.description",
+      "t.notes",
+      "t.completed",
+      "p.name as project",
+      "p.description as project_description"
+    )
+    .then(tasks => {
+      res.status(200).json(tasks);
+    });
 });
 
 router.get("/resources", (req, res) => {

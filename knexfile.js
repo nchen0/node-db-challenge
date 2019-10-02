@@ -16,6 +16,30 @@ module.exports = {
     seeds: {
       directory: "./data/seeds"
     }
+
+    // pool: {
+    //   afterCreate: (conn, done) => {
+    //     // runs after a connection is made to the sqlite engine
+    //     conn.run("PRAGMA foreign_keys = ON", done); // turn on FK enforcement
+    //   }
+    // }
+  },
+  testing: {
+    client: "mysql",
+    connection: {
+      host: "127.0.0.1",
+      user: "root",
+      password: "Alligator7",
+      database: "testing"
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: "./data/migrations"
+    },
+    seeds: {
+      directory: "./data/seeds"
+    }
+
     // pool: {
     //   afterCreate: (conn, done) => {
     //     // runs after a connection is made to the sqlite engine

@@ -15,6 +15,6 @@ server.use("*", (req, res) => {
   res.status(404).send("You've stumbled upon an invalid page.");
 });
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 module.exports = server;
