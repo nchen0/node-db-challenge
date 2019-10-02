@@ -42,11 +42,17 @@ describe("index.js", () => {
 });
 
 describe("projects", () => {
-  describe("insert()", () => {
+  describe("insert", () => {
     it("should insert a project into the database", async () => {
       await db("projects").insert({ name: "Samwise", description: "Gamge" });
       const response = await db("projects");
       expect(response).toHaveLength(1);
+    });
+
+    it("should have the newly added project in the database", async () => {
+      await db("projects").insert({ name: "Samwise", description: "Gamge" });
+      const response = await db("projects");
+      expect(response[0].name).toEqual("Samwise");
     });
   });
 });
